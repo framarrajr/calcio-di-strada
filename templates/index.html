@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Calcio di Strada</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #000000, #001f3f);
+            color: white;
+        }
+        header, footer {
+            background-color: #001933;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #3399ff;
+        }
+        .section {
+            padding: 20px;
+            border-bottom: 1px solid #003366;
+        }
+        .content-block {
+            background-color: #002244;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-left: 5px solid #3399ff;
+        }
+        .section-title {
+            color: #66ccff;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Calcio di Strada</h1>
+        <p>Notizie autentiche dal cuore del gioco</p>
+    </header>
+
+    <div class="section">
+        <h2 class="section-title">Articoli</h2>
+        {% for article in articles %}
+            <div class="content-block">
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.content }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Interviste</h2>
+        {% for interview in interviews %}
+            <div class="content-block">
+                <h3>{{ interview.title }}</h3>
+                <p>{{ interview.content }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Highlights</h2>
+        {% for highlight in highlights %}
+            <div class="content-block">
+                <h3>{{ highlight.title }}</h3>
+                <p>{{ highlight.content }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <footer>
+        © 2025 Calcio di Strada - Tutti i diritti riservati
+    </footer>
+</body>
+</html>
