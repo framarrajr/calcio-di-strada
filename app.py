@@ -25,8 +25,7 @@ class Highlight(db.Model):
     content = db.Column(db.Text, nullable=False)
 
 # CREA DATABASE CON DATI DI ESEMPIO SE NON ESISTE
-@app.before_first_request
-def create_tables():
+with app.app_context():
     db.create_all()
     if not Article.query.first():
         db.session.add_all([
@@ -40,7 +39,6 @@ def create_tables():
             Highlight(title="Top 5 gol della settimana", content="Una selezione delle migliori reti segnate nei campetti italiani.")
         )
         db.session.commit()
-
 @app.route("/")
 def home():
     articles = Article.query.all()
