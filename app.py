@@ -25,13 +25,8 @@ class Highlight(db.Model):
     title = db.Column(db.String(200), nullable=False)
     content = db.Column(db.Text, nullable=False)
 
-<<<<<<< HEAD
 # CREA DATABASE CON DATI DI ESEMPIO SE NON ESISTE
 with app.app_context():
-=======
-@app.before_request
-def create_tables():
->>>>>>> 3ea457e (Aggiunto sistema login e pannello admin)
     db.create_all()
     if not Article.query.first():
         db.session.add_all([
@@ -45,11 +40,8 @@ def create_tables():
             Highlight(title="Top 5 gol della settimana", content="Una selezione delle migliori reti segnate nei campetti italiani.")
         )
         db.session.commit()
-<<<<<<< HEAD
-=======
 
 # HOME
->>>>>>> 3ea457e (Aggiunto sistema login e pannello admin)
 @app.route("/")
 def home():
     articles = Article.query.all()
@@ -101,9 +93,5 @@ def delete_article(id):
     return redirect(url_for('admin'))
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-    import os
-=======
->>>>>>> 3ea457e (Aggiunto sistema login e pannello admin)
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)
